@@ -174,7 +174,9 @@ def scoped_action(action_id: int, user: User, db: Session) -> ActionItem:
 
 @app.get("/api/action-items", response_model=list[ActionOut])
 def action_items(assigned_to: int | None = None, status: str | None = None, priority: str | None = None, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
-    query = db.query(ActionItem).filter(ActionItem.client_id == user.organization_id)
+    query = db.query(ActionItem)
+    if user.role != "admin":
+        query = query.filter(ActionItem.client_id == user.organization_id)
     if assigned_to is not None: query = query.filter(ActionItem.assigned_to == assigned_to)
     if status: query = query.filter(ActionItem.status == status)
     if priority: query = query.filter(ActionItem.priority == priority)
@@ -183,11 +185,13 @@ def action_items(assigned_to: int | None = None, status: str | None = None, prio
 
 @app.post("/api/action-items", response_model=ActionOut, status_code=201)
 def create_action_item(payload: ActionCreate, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
-    if payload.client_id != user.organization_id:
-        raise HTTPException(403, "You can only create items in your organization")
+    require_write(user)
+    require_client_scope(payload.client_id, user)
     values = payload.model_dump(exclude_unset=True)
     values["created_by"] = user.id
     values["status"] = payload.status or "Open"
+    if values.get("due_date") is None:
+        values["due_date"] = date.today()
     item = ActionItem(**values)
     db.add(item); db.commit(); db.refresh(item); return item
 
