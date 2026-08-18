@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { @apply text-slate-900 antialiased; }
+input, select, textarea { @apply mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100; }
+textarea { @apply min-h-20 resize-y; }
+label { @apply block text-sm font-medium text-slate-700; }
+button { @apply rounded-xl px-4 py-2.5 text-sm font-medium transition; }
+.hero-panel { @apply relative bg-gradient-to-br from-indigo-950 via-indigo-800 to-violet-700 shadow-xl shadow-indigo-900/15; }
+.hero-panel::after { content: ""; @apply absolute -right-16 -top-20 h-72 w-72 rounded-full bg-white/10; }
+.brand-mark { @apply inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white font-semibold text-indigo-700 shadow-sm; }
+.account-picker { @apply rounded-2xl bg-white/10 p-3 text-xs font-medium text-indigo-100 backdrop-blur-sm lg:w-72; }
+.account-picker select { @apply mt-1 border-white/20 bg-white/10 text-sm text-white focus:border-white focus:bg-white/15 focus:ring-white/20; }
+.account-picker option { @apply text-slate-900; }
+.tab-button { @apply bg-transparent text-slate-500 hover:bg-white hover:text-slate-900; }
+.tab-active { @apply bg-white text-indigo-700 shadow-sm hover:bg-white hover:text-indigo-700; }
+.notice { @apply rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-3 text-sm text-indigo-900; }
+.eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-indigo-600; }
+.surface-card { @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm shadow-slate-200/40; }
+.metric-card { @apply relative overflow-hidden rounded-2xl border bg-white p-5 shadow-sm shadow-slate-200/40; }
+.metric-card::before { content: ""; @apply absolute inset-x-0 top-0 h-1; }
+.metric-indigo { @apply border-indigo-100; }.metric-indigo::before { @apply bg-indigo-500; }
+.metric-rose { @apply border-rose-100; }.metric-rose::before { @apply bg-rose-500; }
+.metric-amber { @apply border-amber-100; }.metric-amber::before { @apply bg-amber-500; }
+.metric-emerald { @apply border-emerald-100; }.metric-emerald::before { @apply bg-emerald-500; }
+.soft-pill { @apply rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700; }
+.empty-state { @apply mt-8 flex items-start gap-3 rounded-xl bg-slate-50 p-4; }.empty-state > span { @apply inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-100 text-indigo-700; }
+.meeting-row { @apply flex gap-3 border-b border-slate-100 pb-4 last:border-0 last:pb-0; }.meeting-date { @apply flex h-10 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-50 px-1 text-center text-xs font-semibold text-indigo-700; }
+.meeting-details { @apply mt-5 grid gap-5 border-t border-slate-100 pt-5; }.detail-label { @apply text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500; }
+.action-line { @apply flex flex-col gap-1 rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-700 sm:flex-row sm:items-center sm:justify-between; }.action-line span:last-child { @apply text-xs text-slate-500; }
+.status-pill { @apply inline-flex shrink-0 rounded-full px-2.5 py-1 text-xs font-medium; }.status-indigo { @apply bg-indigo-50 text-indigo-700; }.status-orange { @apply bg-orange-50 text-orange-700; }.status-red { @apply bg-red-50 text-red-700; }
+.progress-track { @apply mt-2 h-2.5 overflow-hidden rounded-full bg-slate-100; }.progress-track > div { @apply h-full rounded-full transition-all; }.progress-indigo > div { @apply bg-indigo-600; }.progress-orange > div { @apply bg-orange-500; }.progress-red > div { @apply bg-red-600; }
+.progress-slider { @apply m-0 h-2 cursor-pointer appearance-none bg-slate-100 p-0 accent-indigo-600; }
+.date-filter { @apply text-xs font-medium text-slate-500; }.date-filter input { @apply mt-1 w-auto bg-white py-2 text-sm; }.clear-filter { @apply bg-white px-3 py-2 text-xs text-slate-600 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50; }
+.module-filters { @apply flex flex-wrap items-end gap-2; }.module-filters label { @apply text-xs font-medium text-slate-500; }.module-filters select { @apply mt-1 min-w-28 bg-white py-2 text-xs; }
+.summary-card { @apply relative overflow-hidden rounded-2xl border bg-white p-5 shadow-sm shadow-slate-200/40; }.summary-card::before { content: ""; @apply absolute inset-x-0 top-0 h-1; }.summary-indigo { @apply border-indigo-100; }.summary-indigo::before { @apply bg-indigo-500; }.summary-amber { @apply border-amber-100; }.summary-amber::before { @apply bg-amber-500; }.summary-rose { @apply border-rose-100; }.summary-rose::before { @apply bg-rose-500; }.summary-emerald { @apply border-emerald-100; }.summary-emerald::before { @apply bg-emerald-500; }.summary-glow { @apply absolute -bottom-8 -right-8 h-20 w-20 rounded-full bg-indigo-50; }
+.dashboard-meeting { @apply flex gap-3 border-b border-slate-100 pb-4 last:border-0 last:pb-0; }.dashboard-meeting-date { @apply flex h-10 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xs font-semibold text-indigo-700; }.dashboard-action { @apply flex items-start justify-between gap-3 rounded-xl bg-slate-50 px-3 py-3; }.priority-dot { @apply rounded-full px-2 py-1 text-[10px] font-semibold uppercase; }.priority-high { @apply bg-rose-100 text-rose-700; }.priority-medium { @apply bg-amber-100 text-amber-700; }.priority-low { @apply bg-slate-200 text-slate-600; }.dashboard-feature { @apply rounded-xl border border-slate-100 bg-slate-50 p-4; }
+.action-manager { @apply mt-3 rounded-2xl border border-indigo-100 bg-indigo-50/40 p-4; }.action-manager-heading { @apply mb-3 flex justify-between text-xs font-semibold uppercase tracking-wide text-indigo-700; }.managed-action { @apply flex flex-col justify-between gap-3 border-b border-indigo-100 py-3 last:border-0 sm:flex-row sm:items-center; }.managed-action-done { @apply opacity-60; }.managed-action-done p:first-child { @apply line-through; }.action-small { @apply bg-white px-2.5 py-1.5 text-xs text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50; }.action-delete { @apply text-red-600 ring-red-200 hover:bg-red-50; }.action-edit-form { @apply space-y-2 rounded-xl bg-white p-3; }.action-edit-form select { @apply mt-0 flex-1 py-2; }.action-edit-form button { @apply px-3 py-2; }
+.dashboard-tiles { @apply grid gap-4 lg:grid-cols-3; }.dashboard-tile { @apply min-h-28 rounded-2xl border p-4; }.dashboard-tile-agenda { @apply border-indigo-100 bg-indigo-50/70; }.dashboard-tile-discussion { @apply border-violet-100 bg-violet-50/70; }.dashboard-tile-actions { @apply border-amber-100 bg-amber-50/70; }.tile-label { @apply mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600; }.dashboard-tile > p:last-child { @apply whitespace-pre-line text-sm leading-6 text-slate-700; }.dashboard-tile ul { @apply space-y-2; }.dashboard-tile li { @apply text-sm text-slate-700; }.dashboard-tile li span { @apply mt-1 block text-xs text-slate-500; }
+.requirement-grid { @apply grid gap-4 border-t border-slate-100 pt-5 md:grid-cols-2; }.requirement-grid > div:last-child { @apply md:col-span-2; }
+.login-card { @apply w-full max-w-md rounded-3xl border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/50; }.login-switch { @apply mt-5 w-full bg-transparent text-sm text-indigo-600 hover:text-indigo-800; }
+.date-highlight-strip { @apply flex flex-wrap gap-2; }.date-highlight { @apply flex min-w-16 flex-col items-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-500 shadow-sm hover:border-indigo-300 hover:bg-indigo-50; }.date-highlight span { @apply text-[10px] uppercase tracking-wide; }.date-highlight strong { @apply text-lg font-semibold text-slate-800; }.date-highlight small { @apply text-[10px]; }.date-highlight-active { @apply border-indigo-500 bg-indigo-600 text-white shadow-indigo-200; }.date-highlight-active strong, .date-highlight-active small { @apply text-white; }
+.dashboard-date-picker { @apply rounded-2xl border border-slate-200 bg-white p-4 shadow-sm; }.inline-date-header { @apply flex flex-wrap items-center justify-between gap-3; }.inline-calendar { @apply mt-3 max-w-sm rounded-xl bg-slate-50 p-3; }.calendar-toolbar { @apply flex items-center justify-between text-sm text-slate-800; }.calendar-nav { @apply bg-white px-2.5 py-1 text-lg leading-none text-slate-600 ring-1 ring-slate-200 hover:bg-slate-100; }.calendar-weekdays, .calendar-grid { @apply grid grid-cols-7 gap-1 text-center; }.calendar-weekdays { @apply mb-1 text-[10px] font-semibold uppercase text-slate-400; }.calendar-day { @apply flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-xs text-slate-400; }.calendar-day:disabled { @apply cursor-default opacity-60; }.calendar-day-meeting { @apply bg-indigo-100 font-semibold text-indigo-700 ring-1 ring-indigo-200 hover:bg-indigo-200; }.calendar-day-selected { @apply bg-indigo-600 text-white ring-indigo-600 hover:bg-indigo-700; }
+body:has(.dashboard-date-picker) .module-filters .date-filter { @apply hidden; }
+
+/* Sidebar navigation */
+.app-shell { transition: margin-left .28s ease; }
+/* The legacy HTML5 board remains in the module markup for its create/edit controls,
+   but the accessible KanbanBoard is the only board rendered to users. */
+.kanban-board:not(.kanban-board-modern) { display: none !important; }
+/* The board toolbar owns filtering; hide the legacy header filter. */
+section:has(> .kanban-board) > div:first-child .module-filters > label:first-child { display: none; }
+/* Discussion points remain available in Meetings, but action creation belongs to Action items. */
+.meeting-details > div.mt-4 button.action-small:nth-child(2) { display: none; }
+.kanban-modern-section { display: flex; height: min(72vh, 720px); min-height: 34rem; margin-top: 1.5rem; flex-direction: column; overflow: hidden; border-radius: 1.25rem; border: 1px solid #e2e8f0; background: white; padding: 1.25rem; box-shadow: 0 8px 24px rgba(15,23,42,.04); }
+.kanban-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-top: .9rem; }
+.kanban-toolbar label { color: #64748b; font-size: .75rem; font-weight: 600; }
+.kanban-toolbar select { display: block; min-width: 12rem; margin-top: .3rem; background: #f8fafc; }
+.kanban-scroll-shell { min-height: 0; margin-top: 1rem; flex: 1; overflow-x: auto; padding-bottom: .35rem; }
+.kanban-board-modern { display: flex; height: 100%; min-height: 0; gap: 1rem; }
+.kanban-column-modern { display: flex; min-width: 240px; min-height: 0; flex: 1 1 240px; flex-direction: column; border: 1px solid #e2e8f0; border-radius: 1rem; background: #f8fafc; padding: .85rem; transition: border-color .2s ease, background .2s ease, box-shadow .2s ease; }
+.kanban-column-over { border-color: #818cf8; background: #eef2ff; box-shadow: 0 0 0 3px rgba(129,140,248,.14); }
+.kanban-column-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: .8rem .2rem .2rem 0; scrollbar-color: #c7d2fe transparent; scrollbar-width: thin; }
+.kanban-card-modern { margin-bottom: .65rem; cursor: grab; border: 1px solid #e2e8f0; border-radius: .85rem; background: white; padding: .85rem; box-shadow: 0 3px 10px rgba(15,23,42,.04); touch-action: none; transition: box-shadow .2s ease, transform .2s ease; }
+.kanban-card-modern:hover { box-shadow: 0 8px 18px rgba(15,23,42,.1); }
+.kanban-card-modern:active { cursor: grabbing; }
+.kanban-card-dragging { opacity: .45; }
+.kanban-drag-overlay { width: 240px; transform: rotate(2deg); box-shadow: 0 16px 30px rgba(15,23,42,.18); }
+.kanban-empty { display: grid; min-height: 5rem; place-items: center; border: 2px dashed #cbd5e1; border-radius: .75rem; color: #94a3b8; font-size: .75rem; }
+.app-sidebar { position: fixed; inset: 0 auto 0 0; z-index: 40; display: flex; width: 248px; flex-direction: column; border-right: 1px solid #e2e8f0; background: rgba(255,255,255,.96); box-shadow: 12px 0 30px rgba(15,23,42,.04); transition: width .28s ease, transform .28s ease; }
+.sidebar-collapsed { width: 76px; }
+.sidebar-brand { display: flex; min-height: 76px; align-items: center; gap: 10px; border-bottom: 1px solid #f1f5f9; padding: 0 16px; }
+.sidebar-brand .brand-mark { flex: none; }
+.sidebar-brand-title { color: #172554; font-size: .95rem; font-weight: 700; white-space: nowrap; }
+.sidebar-brand-subtitle { color: #94a3b8; font-size: .68rem; white-space: nowrap; }
+.sidebar-collapse { margin-left: auto; display: grid; height: 28px; width: 28px; place-items: center; border-radius: 8px; color: #64748b; font-size: 1.5rem; line-height: 1; }
+.sidebar-collapse:hover { background: #f1f5f9; color: #334155; }
+.sidebar-nav { flex: 1; overflow-y: auto; padding: 18px 10px; }
+.sidebar-item { display: flex; width: 100%; align-items: center; gap: 12px; border-radius: 12px; padding: 11px 12px; color: #64748b; font-size: .82rem; font-weight: 600; text-align: left; transition: transform .18s ease, background .18s ease, color .18s ease; }
+.sidebar-item:hover { transform: translateX(3px); background: #f8fafc; color: #334155; }
+.sidebar-item-active { background: #eef2ff; color: #4338ca; box-shadow: inset 3px 0 #6366f1; }
+.sidebar-icon { display: grid; width: 24px; flex: none; place-items: center; color: #818cf8; font-size: 1.05rem; }
+.sidebar-item-active .sidebar-icon { color: #4f46e5; }
+.sidebar-user { display: flex; align-items: center; gap: 10px; border-top: 1px solid #f1f5f9; padding: 16px; }
+.sidebar-avatar { display: grid; height: 34px; width: 34px; flex: none; place-items: center; border-radius: 50%; background: #e0e7ff; color: #4338ca; font-size: .8rem; font-weight: 700; }
+.sidebar-user-name { overflow: hidden; color: #334155; font-size: .78rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-user-role { color: #94a3b8; font-size: .68rem; text-transform: capitalize; }
+.app-shell { margin-left: 248px; }
+.sidebar-collapsed + .app-shell { margin-left: 76px; }
+.sidebar-mobile-toggle, .sidebar-overlay { display: none; }
+nav.mt-6[aria-label="Modules"] { display: none; }
+@media (max-width: 640px) {
+  .kanban-modern-section { height: calc(100vh - 11rem); min-height: 28rem; padding: 1rem; }
+  .kanban-toolbar { align-items: stretch; flex-direction: column; }
+  .kanban-toolbar select { width: 100%; }
+}
+@media (max-width: 1023px) {
+  .app-shell, .sidebar-collapsed + .app-shell { margin-left: 0; }
+  .app-sidebar { transform: translateX(-105%); }
+  .sidebar-mobile-open { transform: translateX(0); }
+  .sidebar-collapse { display: none; }
+  .sidebar-mobile-toggle { position: fixed; top: 16px; left: 16px; z-index: 30; display: grid; height: 40px; width: 40px; place-items: center; border: 1px solid #e2e8f0; border-radius: 12px; background: white; color: #4338ca; box-shadow: 0 8px 20px rgba(15,23,42,.12); }
+  .sidebar-overlay { position: fixed; inset: 0; z-index: 35; display: block; background: rgba(15,23,42,.35); }
+}
+th { @apply border-b border-slate-200 pb-3 text-left text-[11px] font-semibold uppercase tracking-wide text-slate-500; }
+td { @apply border-b border-slate-100 py-3.5 pr-4 text-sm text-slate-700 last:pr-0; }
+tbody tr:last-child td { @apply border-0; }
+form button { @apply bg-indigo-600 text-white hover:bg-indigo-700; }
+.delete-button { @apply bg-white text-red-600 ring-1 ring-red-200 hover:bg-red-50; }
+.edit-button { @apply bg-indigo-50 px-2.5 py-1.5 text-xs text-indigo-700 hover:bg-indigo-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400; }
+.kanban-board { @apply grid gap-4 overflow-x-auto pb-2 md:grid-cols-3 xl:grid-cols-5; }.kanban-column { @apply min-h-64 min-w-56 rounded-2xl border border-slate-200 bg-slate-50 p-3; }.kanban-card { @apply cursor-grab rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:border-indigo-300 hover:shadow-md active:cursor-grabbing; }.modal-backdrop { @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4; }.modal-card { @apply max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl; }
+.meeting-vault-card { @apply rounded-xl border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-white hover:shadow-md; }.drawer-backdrop { @apply fixed inset-0 z-50 flex justify-end bg-slate-900/40; }.meeting-drawer { @apply h-full w-full max-w-xl overflow-y-auto bg-white p-6 shadow-2xl; }.status-emerald { @apply bg-emerald-50 text-emerald-700; }
+.client-progress-hero { @apply flex items-center justify-between rounded-2xl border border-blue-100 bg-white p-7 shadow-sm; }.client-progress-ring { background: conic-gradient(#3b82f6 var(--progress), #e5e7eb 0deg); @apply relative flex h-32 w-32 items-center justify-center rounded-full; }.client-progress-ring::before { content: ""; @apply absolute h-24 w-24 rounded-full bg-white; }.client-progress-ring strong { @apply relative z-10 text-xl text-blue-700; }.client-approval-panel { @apply rounded-2xl border border-amber-200 bg-amber-50 p-6; }.client-next-meeting { @apply flex items-center justify-between rounded-2xl border border-blue-200 bg-blue-50 p-6; }.client-next-meeting > span { @apply rounded-full bg-blue-100 px-3 py-2 text-sm text-blue-800; }
+.calendar-focus { @apply min-h-[30rem]; }.visual-calendar-grid { @apply mt-2 grid grid-cols-7 gap-2; }.visual-calendar-day { @apply flex min-h-16 flex-col items-start justify-between rounded-xl border border-transparent bg-slate-50 p-2 text-left text-slate-400 transition hover:border-indigo-200 hover:bg-indigo-50; }.visual-calendar-day strong { @apply text-sm font-semibold text-slate-700; }.visual-calendar-day span { @apply text-[10px] font-medium text-indigo-600; }.visual-calendar-day.has-meeting { @apply border-indigo-100 bg-indigo-50/70; }.visual-calendar-day.is-selected { @apply border-indigo-500 bg-indigo-600 shadow-md; }.visual-calendar-day.is-selected strong, .visual-calendar-day.is-selected span { @apply text-white; }.calendar-dot { @apply mr-1 inline-block h-2 w-2 rounded-full; }.calendar-dot-meeting { @apply bg-indigo-500; }.calendar-dot-selected { @apply bg-indigo-700; }.calendar-meeting-card { @apply rounded-xl border border-indigo-100 bg-indigo-50/60 p-3; }.calendar-empty { @apply rounded-xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-500; }.progress-emerald > div { @apply bg-emerald-500; }
+.status-bar { @apply h-full rounded-full; }.status-bar-open { @apply bg-indigo-500; }.status-bar-in-progress { @apply bg-blue-500; }.status-bar-blocked { @apply bg-rose-500; }.status-bar-testing { @apply bg-violet-500; }.status-bar-completed { @apply bg-emerald-500; }.compact-calendar-grid { @apply mt-2 grid grid-cols-7 gap-1; }.compact-calendar-day { @apply flex h-8 items-center justify-center rounded-lg text-xs text-slate-500 hover:bg-indigo-50; }.compact-calendar-day.has-meeting { @apply bg-indigo-100 font-semibold text-indigo-700 ring-1 ring-indigo-200; }.compact-calendar-day.is-selected { @apply bg-indigo-600 text-white ring-indigo-600; }
+.leadership-ring-card { @apply relative flex flex-col items-center rounded-xl border border-slate-100 bg-slate-50 p-3 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-sm; }.leadership-ring-card span { @apply mt-1 max-w-24 truncate text-center text-xs font-medium text-slate-600; }.leadership-ring-card i { @apply absolute right-2 top-2 h-2.5 w-2.5 rounded-full; }.leadership-ring-value { @apply absolute inset-0 flex items-center justify-center text-xs font-bold text-slate-700; }.master-project-card { @apply rounded-xl border border-slate-100 bg-slate-50 p-4; }.master-project-warning { @apply border-amber-200 bg-amber-50/40; }.master-project-critical { @apply border-rose-200 bg-rose-50/40; }
+ .rbac-matrix {
+  @apply w-full min-w-[620px] border-collapse text-sm;
+}
+
+.rbac-matrix th {
+  @apply border-b border-slate-200 px-3 py-3 text-center text-[11px] font-semibold uppercase tracking-wide text-slate-500;
+}
+
+.rbac-matrix th:first-child,
+.rbac-matrix td:first-child {
+  @apply text-left;
+}
+
+.rbac-matrix td {
+  @apply border-b border-slate-100 px-3 py-3 text-center;
+}
+
+.rbac-matrix td:first-child {
+  @apply font-medium text-slate-700;
+}
+
+.rbac-matrix input[type="checkbox"] {
+  @apply h-4 w-4 accent-indigo-600;
+}
+.upload-button { @apply inline-flex cursor-pointer items-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700; }
+.upload-button input { @apply hidden; }
