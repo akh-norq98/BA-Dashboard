@@ -33,18 +33,24 @@ export default function Sidebar({ active, onSelect }: { active: ModuleId; onSele
 
   const visibleModules = useMemo(() => modules.filter(item => {
     if (item.roles && !item.roles.includes(user.role || "")) return false;
-    if (permissions?.[item.permission]) return permissions[item.permission].view !== false;
-    return true;
+    if (!permissions) return false;
+    return permissions[item.permission]?.view === true;
   }), [permissions, user.role]);
 
   const select = (module: ModuleId) => { onSelect(module); setMobileOpen(false); };
+  const logout = () => {
+    window.localStorage.removeItem("access_token");
+    window.localStorage.removeItem("deliveryhub_user");
+    document.cookie = "deliveryhub_session=; path=/; max-age=0; SameSite=Lax";
+    window.location.href = "/login";
+  };
   return <>
     <button type="button" className="sidebar-mobile-toggle" onClick={() => setMobileOpen(true)} aria-label="Open navigation">☰</button>
     {mobileOpen && <button type="button" className="sidebar-overlay" onClick={() => setMobileOpen(false)} aria-label="Close navigation" />}
     <aside className={`app-sidebar ${open ? "sidebar-open" : "sidebar-collapsed"} ${mobileOpen ? "sidebar-mobile-open" : ""}`}>
       <div className="sidebar-brand"><span className="brand-mark">DH</span>{open && <div><p className="sidebar-brand-title">Delivery Hub</p><p className="sidebar-brand-subtitle">Delivery workspace</p></div>}<button type="button" className="sidebar-collapse" onClick={() => setOpen(value => !value)} aria-label={open ? "Collapse navigation" : "Expand navigation"}>{open ? "‹" : "›"}</button></div>
       <nav className="sidebar-nav" aria-label="Modules">{visibleModules.map(item => <button type="button" key={item.id} title={!open ? item.label : undefined} className={`sidebar-item ${active === item.id ? "sidebar-item-active" : ""}`} onClick={() => select(item.id)}><span className="sidebar-icon">{item.icon}</span>{open && <span>{item.label}</span>}</button>)}</nav>
-      <div className="sidebar-user"><span className="sidebar-avatar">{(user.name || "U").charAt(0).toUpperCase()}</span>{open && <div className="min-w-0"><p className="sidebar-user-name">{user.name || "User"}</p><p className="sidebar-user-role">{user.role || "Workspace member"}</p></div>}</div>
+      <div className="sidebar-user"><span className="sidebar-avatar">{(user.name || "U").charAt(0).toUpperCase()}</span>{open && <div className="min-w-0"><p className="sidebar-user-name">{user.name || "User"}</p><p className="sidebar-user-role">{user.role || "Workspace member"}</p></div>}<button type="button" className="sidebar-logout" onClick={logout} title="Log out" aria-label="Log out">↪</button></div>
     </aside>
   </>;
 }

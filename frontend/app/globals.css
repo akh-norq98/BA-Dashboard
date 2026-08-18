@@ -86,6 +86,8 @@ section:has(> .kanban-board) > div:first-child .module-filters > label:first-chi
 .sidebar-avatar { display: grid; height: 34px; width: 34px; flex: none; place-items: center; border-radius: 50%; background: #e0e7ff; color: #4338ca; font-size: .8rem; font-weight: 700; }
 .sidebar-user-name { overflow: hidden; color: #334155; font-size: .78rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
 .sidebar-user-role { color: #94a3b8; font-size: .68rem; text-transform: capitalize; }
+.sidebar-logout { margin-left: auto; display: grid; height: 30px; width: 30px; flex: none; place-items: center; border-radius: 8px; color: #64748b; font-size: 1.1rem; }
+.sidebar-logout:hover { background: #fee2e2; color: #b91c1c; }
 .app-shell { margin-left: 248px; }
 .sidebar-collapsed + .app-shell { margin-left: 76px; }
 .sidebar-mobile-toggle, .sidebar-overlay { display: none; }
